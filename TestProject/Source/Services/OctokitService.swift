@@ -9,7 +9,7 @@ import Octokit
 
 class OctokitService {
     
-    static var token = TokenConfiguration("f492505e3a8621fcf8f648239cfaa1374fb08bff", url: "https://api.github.com")
+    static var token = TokenConfiguration("b8629bb073638535d2c3993e38d4d8227ca6d7cb", url: "https://api.github.com")
     
     static var current: Octokit {
         return Octokit(self.token)
