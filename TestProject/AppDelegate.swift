@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        let conf = TokenConfiguration("6b7177978319f1d05dddce378a5198908932abc2", url: "https://api.github.com")
+        let conf = TokenConfiguration("f492505e3a8621fcf8f648239cfaa1374fb08bff", url: "https://api.github.com")
 
         self.loadCurrentUser(config: conf)
         
