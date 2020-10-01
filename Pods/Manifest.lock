@@ -1,0 +1,30 @@
+PODS:
+  - NBNRequestKit (2.2.0)
+  - OctoKit.swift (0.8.0):
+    - NBNRequestKit (~> 2.0)
+  - SDWebImage (5.9.1):
+    - SDWebImage/Core (= 5.9.1)
+  - SDWebImage/Core (5.9.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - OctoKit.swift
+  - SDWebImage
+  - SnapKit
+
+SPEC REPOS:
+  trunk:
+    - NBNRequestKit
+    - OctoKit.swift
+    - SDWebImage
+    - SnapKit
+
+SPEC CHECKSUMS:
+  NBNRequestKit: 30c39d8e23e94f935bfc2a25789c44e4a6e1bfdd
+  OctoKit.swift: 2f51efbf888997fc625b91894777e76e9142d95b
+  SDWebImage: a990c053fff71e388a10f3357edb0be17929c9c5
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 2ecfed9ede388b57968fccd988a195f6cb64bd81
+
+COCOAPODS: 1.9.3
