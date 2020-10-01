@@ -21,8 +21,6 @@
 		D3A4E18F2524FFD0000C239C /* UserRepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A4E18D2524FFD0000C239C /* UserRepoTableViewCell.xib */; };
 		D3A4E1952525001E000C239C /* UserRepoDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4E1932525001E000C239C /* UserRepoDetailTableViewCell.swift */; };
 		D3A4E1962525001E000C239C /* UserRepoDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A4E1942525001E000C239C /* UserRepoDetailTableViewCell.xib */; };
-		D3A4E1A42525323C000C239C /* StarIconView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3A4E1A32525323C000C239C /* StarIconView.xib */; };
-		D3A4E1A72525339A000C239C /* StarIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4E1A62525339A000C239C /* StarIconView.swift */; };
 		D3A4E1AA252533C1000C239C /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3A4E1A9252533C1000C239C /* CustomView.swift */; };
 		D3AA5BFE25223B02007824B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3AA5BFD25223B02007824B4 /* AppDelegate.swift */; };
 		D3AA5C0725223B04007824B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3AA5C0625223B04007824B4 /* Assets.xcassets */; };
@@ -63,8 +61,6 @@
 		D3A4E18D2524FFD0000C239C /* UserRepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserRepoTableViewCell.xib; sourceTree = "<group>"; };
 		D3A4E1932525001E000C239C /* UserRepoDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepoDetailTableViewCell.swift; sourceTree = "<group>"; };
 		D3A4E1942525001E000C239C /* UserRepoDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserRepoDetailTableViewCell.xib; sourceTree = "<group>"; };
-		D3A4E1A32525323C000C239C /* StarIconView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StarIconView.xib; sourceTree = "<group>"; };
-		D3A4E1A62525339A000C239C /* StarIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StarIconView.swift; sourceTree = "<group>"; };
 		D3A4E1A9252533C1000C239C /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		D3AA5BFA25223B02007824B4 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3AA5BFD25223B02007824B4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,15 +174,6 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		D3A4E1A225253226000C239C /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				D3A4E1A32525323C000C239C /* StarIconView.xib */,
-				D3A4E1A62525339A000C239C /* StarIconView.swift */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
 		D3AA5BF125223B02007824B4 = {
 			isa = PBXGroup;
 			children = (
@@ -220,7 +207,6 @@
 		D3AA5C1425223E1A007824B4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D3A4E1A225253226000C239C /* Views */,
 				D3A4E17C2524F55E000C239C /* Types */,
 				D3C662432523AA7900DFA748 /* Libs */,
 				D3C662372523A96200DFA748 /* Extensions */,
@@ -403,7 +389,6 @@
 				D3A4E18F2524FFD0000C239C /* UserRepoTableViewCell.xib in Resources */,
 				D3AA5C0A25223B04007824B4 /* LaunchScreen.storyboard in Resources */,
 				D322FE6A2523BFB9008B253D /* UserDetailViewController.xib in Resources */,
-				D3A4E1A42525323C000C239C /* StarIconView.xib in Resources */,
 				D3A4E1962525001E000C239C /* UserRepoDetailTableViewCell.xib in Resources */,
 				D3AA5C1F252240A3007824B4 /* TableViewCell.xib in Resources */,
 				D3AA5C1925223E89007824B4 /* SearchUsersViewController.xib in Resources */,
@@ -475,7 +460,6 @@
 				D3C662502523B44F00DFA748 /* Optional+Extensions.swift in Sources */,
 				D3C662352523A93400DFA748 /* Event.swift in Sources */,
 				D3C662462523AA9800DFA748 /* Functions.swift in Sources */,
-				D3A4E1A72525339A000C239C /* StarIconView.swift in Sources */,
 				D3AA5C1E252240A3007824B4 /* TableViewCell.swift in Sources */,
 				D3AA5BFE25223B02007824B4 /* AppDelegate.swift in Sources */,
 				D3F38E87252244C000B509C8 /* UserModel.swift in Sources */,

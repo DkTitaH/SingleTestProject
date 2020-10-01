@@ -8,7 +8,7 @@
 import UIKit
 import Octokit
 
-@main
+@UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var config: OAuthConfiguration?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-
-        let conf = TokenConfiguration("f7267a0c59a44f24576bdf3d9e08d42b0cc662df", url: "https://api.github.com")
-        
+//
+        let conf = TokenConfiguration("85c298962e17494683910f725308cedde12079d0", url: "https://api.github.com")
+//
         self.loadCurrentUser(config: conf)
         
         let urlBuilder = URLBuilder()
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-    
+//
     func loadCurrentUser(config: TokenConfiguration) {
       Octokit(config).me() { response in
         switch response {
@@ -44,6 +44,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
           print(error)
         }
       }
+    }
+}
+
+class OctokitService {
+    
+    static var token = TokenConfiguration("85c298962e17494683910f725308cedde12079d0", url: "https://api.github.com")
+    
+    static var current: Octokit {
+        return Octokit(self.token)
     }
 }
 

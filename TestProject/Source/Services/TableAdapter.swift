@@ -21,8 +21,7 @@ public class TableAdapter: NSObject, UITableViewDataSource, UITableViewDelegate,
     //MARK: Accesors
     
     public var sections = [Section]() {
-        didSet {
-            
+        didSet {            
             self.table?.reloadData()
             UIView.animate(
                 withDuration: 0.0,

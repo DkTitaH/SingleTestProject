@@ -7,12 +7,13 @@
 
 import UIKit
 import SnapKit
+import Octokit
 
 class UserRepoDetailTableViewCellModel {
-    let model: RepoModel
+    let model: Repository
     var isShowMore: Bool = false
     
-    init(model: RepoModel) {
+    init(model: Repository) {
         self.model = model
     }
 }
@@ -51,13 +52,12 @@ class UserRepoDetailTableViewCell: BaseCell<UserRepoDetailTableViewCellModel, Us
         
         self.nameLabel?.text = model.model.name
         self.languageLabel?.text = model.model.language
-        self.starsCountLabel?.text = model.model.stargazers_count?.description
+        self.starsCountLabel?.text = model.model.stargazersCount.description
         
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss'Z'"
-        formatter.date(from: model.model.updated_at ?? "")
         
-        self.updatedAtLabel?.text = formatter.date(from: model.model.updated_at ?? "")?.description
+        self.updatedAtLabel?.text = formatter.date(from: model.model.updatedAt ?? "")?.description
     }
     
     private func setMoreInfoVisible(bool: Bool) {

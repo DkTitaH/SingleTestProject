@@ -25,7 +25,6 @@ class UserInfoTableViewCell: BaseCell<UserInfoTableViewCellModel,UserInfoTableVi
     @IBOutlet var createdAtLabel: UILabel?
     @IBOutlet var locationLabel: UILabel?
     
-    
     override func fill(with model: UserInfoTableViewCellModel) {
         let url = URL(string: model.user.avatarURL ?? "")
         

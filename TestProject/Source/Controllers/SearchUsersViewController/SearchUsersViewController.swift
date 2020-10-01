@@ -53,12 +53,20 @@ class SearchUsersViewController: RootViewController<SearchUsersViewControllerEve
         self.searchTextField?.layer.borderColor = UIColor(named: "BlackAndWhite")?.cgColor
         self.searchTextField?.layer.cornerRadius = 6
         
+        self.sortButton?.setTitleColor(UIColor(named: "BlackAndWhite"), for: .normal)
         self.sortButton?.layer.borderWidth = 1
         self.sortButton?.layer.borderColor = UIColor(named: "BlackAndWhite")?.cgColor
         self.sortButton?.layer.cornerRadius = 6
         
         let activityIndicator = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 200, height: 200))
-        activityIndicator.isHidden = true
+        
+        let iosVersion = NSString(string: UIDevice.current.systemVersion).doubleValue
+        
+        if iosVersion >= 13 {
+            activityIndicator.color = UIColor(named: "BlackAndWhite")
+        } else {
+            activityIndicator.style = .gray
+        }
         self.indicator = activityIndicator
         
         self.view?.addSubview(activityIndicator)
@@ -73,6 +81,12 @@ class SearchUsersViewController: RootViewController<SearchUsersViewControllerEve
         
         
         self.searchTextField?.delegate = self
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.indicator?.stopAnimating()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

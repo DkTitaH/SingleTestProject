@@ -6,9 +6,10 @@
 //
 
 import UIKit
+import Octokit
 
 struct UserRepoTableViewCellModel {
-    let models: [RepoModel]
+    let models: [Repository]
     let height: CGFloat
 }
 
@@ -31,7 +32,7 @@ class UserRepoTableViewCell: BaseCell<UserRepoTableViewCellModel, UserRepoTableV
         self.height?.constant = model.height
     }
     
-    private func section(models: [RepoModel]) -> Section {
+    private func section(models: [Repository]) -> Section {
         let cellModels = models.map { UserRepoDetailTableViewCellModel(model: $0) }
         
         return Section(cell: UserRepoDetailTableViewCell.self, models: cellModels, eventHandler: { [weak self] event in

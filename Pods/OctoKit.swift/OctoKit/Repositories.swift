@@ -12,8 +12,12 @@ import RequestKit
     @objc open var repositoryDescription: String?
     @objc open private(set) var isFork: Bool = false
     @objc open var gitURL: String?
+    @objc open var language: String?
+    @objc open var updatedAt: String?
+    @objc open private(set) var stargazersCount: Int = -1
     @objc open var sshURL: String?
     @objc open var cloneURL: String?
+    
     @objc open var htmlURL: String?
     @objc open private(set) var size: Int = -1
     @objc open var lastPush: Date?
@@ -32,6 +36,9 @@ import RequestKit
         case htmlURL = "html_url"
         case size
         case lastPush = "pushed_at"
+        case language
+        case updatedAt = "updated_at"
+        case stargazersCount = "stargazers_count"
     }
 }
 

@@ -7,6 +7,7 @@
 
 import UIKit
 import Octokit
+import RequestKit
 
 enum UserDetailViewControllerEvent: Event {
 
@@ -34,20 +35,28 @@ class UserDetailViewController: RootViewController<UserDetailViewControllerEvent
     override func viewDidLoad() {
         super.viewDidLoad()
         let activityIndicator = UIActivityIndicatorView(frame: .init(x: 0, y: 0, width: 200, height: 200))
+        
+        let iosVersion = NSString(string: UIDevice.current.systemVersion).doubleValue
+        
+        if iosVersion >= 13 {
+            activityIndicator.color = UIColor(named: "BlackAndWhite")
+        } else {
+            activityIndicator.style = .gray
+        }
         activityIndicator.startAnimating()
         
-        self.tableView?.addSubview(activityIndicator)
+        self.view?.addSubview(activityIndicator)
         
         activityIndicator.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalTo(self.view.frame.height * 0.45)
+            $0.centerY.equalTo((self.view.frame.height - 260) / 1.5)
         }
         
         self.indicator = activityIndicator
         
         self.configureTableView(self.tableView)
         
-        Octokit().user(name: self.user.login ?? "", completion: { [weak self] response in
+        let _ = OctokitService.current.user(name: self.user.login ?? "", completion: { [weak self] response in
             DispatchQueue.main.async {
                 switch response {
                   case .success(let user):
@@ -59,20 +68,21 @@ class UserDetailViewController: RootViewController<UserDetailViewControllerEvent
                 }
             }
         })
-
-        self.requestService.repos(user: self.user) { [weak self] result in
-            switch result {
-            case let .success(model):
-                if let section = self?.section(models: model) {
-                    self?.tableAdapter?.sections.append(section)
-                    self?.tableAdapter?.reload()
-                    self?.indicator?.removeFromSuperview()
+        
+        let _ = OctokitService.current.repositories(URLSession.shared, owner: self.user.login, page: "1", perPage: "20", completion: { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case let .success(repos):
+                    if let section = self?.section(models: repos) {
+                        self?.tableAdapter?.sections.append(section)
+                        self?.tableAdapter?.reload()
+                        self?.indicator?.removeFromSuperview()
+                    }
+                case let .failure(error):
+                    print(error)
                 }
-            case let .failure(error):
-                self?.indicator?.removeFromSuperview()
-                print(error.localizedDescription)
             }
-        }
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +94,7 @@ class UserDetailViewController: RootViewController<UserDetailViewControllerEvent
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
+        self.indicator?.isHidden = true
         self.navigationController?.navigationBar.isHidden = true
     }
     
@@ -93,7 +104,7 @@ class UserDetailViewController: RootViewController<UserDetailViewControllerEvent
         return Section(cell: UserInfoTableViewCell.self, models: [model])
     }
     
-    private func section(models: [RepoModel]) -> Section {
+    private func section(models: [Repository]) -> Section {
         var height: CGFloat = 200
         
         if let cell = self.tableView?.cellForRow(at: .init(row: 0, section: 0)) as? UserInfoTableViewCell {
