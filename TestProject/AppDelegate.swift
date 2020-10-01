@@ -16,9 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var config: OAuthConfiguration?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-//
-        let conf = TokenConfiguration("85c298962e17494683910f725308cedde12079d0", url: "https://api.github.com")
-//
+
+        let conf = TokenConfiguration("6b7177978319f1d05dddce378a5198908932abc2", url: "https://api.github.com")
+
         self.loadCurrentUser(config: conf)
         
         let urlBuilder = URLBuilder()
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-//
+
     func loadCurrentUser(config: TokenConfiguration) {
       Octokit(config).me() { response in
         switch response {
@@ -46,13 +46,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       }
     }
 }
-
-class OctokitService {
-    
-    static var token = TokenConfiguration("85c298962e17494683910f725308cedde12079d0", url: "https://api.github.com")
-    
-    static var current: Octokit {
-        return Octokit(self.token)
-    }
-}
-
